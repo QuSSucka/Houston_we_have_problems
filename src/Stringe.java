@@ -44,9 +44,49 @@ public class Stringe {
         System.out.println(Arrays.toString(s1.split("l"))); // Символ который указывается как разделитель - вырезается
         String s2 = "123456789";
         System.out.println(s2.length());
+        System.out.println("---------------");
         for (int i = s2.length() - 1; i >= 0; i--) {
             System.out.print(s2.charAt(i));
         }
         System.out.println();
+        if (s1.equals(s2)) { // Для сравнения строк
+            System.out.println("==");
+        } else {
+            System.out.println("<>");
+        }
+        System.out.println("---------------");
+        String s_1 = "1";
+        String s_2 = "2";
+        if (s_1.compareTo(s_2) == 0) { // Сравниваются только первые символы по таблице Аски
+            System.out.println(">");
+        } else {
+            System.out.println("<");
+        }
+        System.out.println("---------------");
+        StringBuilder sro_1 = new StringBuilder();
+        System.out.println(sro_1);
+        sro_1.append("Hello ");
+        System.out.println(sro_1);
+        sro_1.append("world");
+        System.out.println(sro_1);
+        sro_1.delete(6, 9); // 6-8
+        System.out.println(sro_1);
+        sro_1.setLength(2); // Устанавливает длину StringBuilder
+        System.out.println(sro_1);
+        sro_1.deleteCharAt(1);
+        System.out.println(sro_1);
+        System.out.println("---------------");
+
+        String s = "Hello world!";
+        StringBuilder sb_1 = new StringBuilder();
+        StringBuilder sb_2 = new StringBuilder();
+        for (int i = s.length() - 1; i >= 0; i--) {
+            sb_1.append(s.charAt(i));
+        }
+        System.out.println(sb_1);
+        for (int i = 0; i <= s.length() -1; i++) {
+            sb_2.insert(0,s.charAt(i));
+        }
+        System.out.println(sb_2);
     }
 }
