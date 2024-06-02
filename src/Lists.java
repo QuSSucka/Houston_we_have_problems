@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Lists {
     public static void main(String[] args) {
@@ -12,8 +13,8 @@ public class Lists {
 //        Collections.sort(names);
 //        System.out.println(names);
         List<Car> cars = new ArrayList<>();
-        Car car1 = new Car(1, "BMW", 15000);
-        Car car2 = new Car(2, "Audi", 12000);
+        Car car1 = new Car(1, "Audi", 15000);
+        Car car2 = new Car(1, "Audi", 12000);
         Car car3 = new Car(3, "Mercedes", 14000);
         cars.add(car1);
         cars.add(car2);
@@ -45,13 +46,18 @@ class Car implements Comparable<Car> {
 
     @Override
     public int compareTo(Car car) {
+        if (this.id != car.id) {
+            return Integer.compare(this.id, car.id);
+        }
+        else{
+            if (!Objects.equals(this.name, car.name)) {
+                return this.name.compareTo(car.name);
+            }
+            else {
+                return Integer.compare(this.price, car.price);
+            }
+        }
 
-        if (this.id < car.id) {
-            return 1;
-        }
-        else if (this.id > car.id) {
-            return -1;
-        }
-        return this.name.compareTo(car.name);
+
     }
 }
